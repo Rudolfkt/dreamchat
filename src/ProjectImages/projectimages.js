@@ -1,4 +1,5 @@
-const Images ={
-    Ruu:required('../images/Ruu.jpeg')
-}
-export default Images
+const Images = {
+    Ruu: require('./../images/cole.jpg')
+};
+
+export default Images;
