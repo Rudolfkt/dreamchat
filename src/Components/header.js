@@ -1,11 +1,11 @@
-import react from 'react';
-import 'header.css'
+import React from 'react';
+import './Header.css'
 import {Link} from  'react-router-dom'
 
 function Header(){
     return(
-        <header className="headerLoginSignup">
-            <div className="headerLimiter">
+        <header className="HeaderLoginSignup">
+            <div className="HeaderLimiter">
                 <h1>
                     <a href= "/Home">Infinity<span>Chat</span></a>
                 </h1>
