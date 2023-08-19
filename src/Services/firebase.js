@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAdrvpAq1iFak--hJ-_IENrLlwOt4IQaVg",
   authDomain: "dreamchat-6b8f2.firebaseapp.com",
@@ -11,4 +14,5 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export default app;
+const auth = getAuth(app);
+export { app, auth };
