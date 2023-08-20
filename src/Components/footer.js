@@ -3,6 +3,7 @@ import './Footer.css';
 
 class Footer extends React.Component {
     renderCopyright = () => {
+        console.log('Footer rendered');
         return (
             <h2 variant="body2" color="textSecondary" align="center">
                 {'Copyright @'}

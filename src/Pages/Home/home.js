@@ -7,12 +7,14 @@ import { Link } from 'react-router-dom';
 
 export default class HomePage extends Component {
     render() {
+        console.log('HomePage rendered');
+
         return (
             <>
                 <Header />
                 <div className='splash-container'>
                     <div className='splash'>
-                        <h1 className='splash-head'>Infinity Chat</h1>
+                        <h1 className='splash-head'>Dream Chat</h1>
                         <p className="splash-subhead">
                             Chat with whoever, whenever, wherever
                         </p>
