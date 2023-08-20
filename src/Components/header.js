@@ -5,14 +5,12 @@ import {Link} from 'react-router-dom'
 function Header(){
     console.log('Header rendered');
     return(
-        <header className="HeaderLoginSignup">
-            <div className="HeaderLimiter">
-                <h1>
-                    <a href= "/Home">Dream<span>Chat</span></a>
-                </h1>
+        <header class="header-login-signup">
+            <div class="header-limiter">
+                <h1><a href= "/Home">Dream<span>Chat</span></a></h1>
                 <nav>
                     <Link to='/'> Home </Link>
-                    <a className="selected"><Link to='/'>About App</Link></a>
+                    <a class="selected"><Link to='/'>About App</Link></a>
                     <a><Link to='/'> Contact us </Link></a>
                 </nav>
                 <ul>

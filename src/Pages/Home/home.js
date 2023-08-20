@@ -11,10 +11,11 @@ export default class HomePage extends Component {
 
         return (
             <>
-                <Header />
-                <div className='splash-container'>
-                    <div className='splash'>
-                        <h1 className='splash-head'>Dream Chat</h1>
+                <Header/>
+                <div>
+                <div className="splash-container">
+                    <div className="splash">
+                        <h1 className="splash-head">Dream Chat</h1>
                         <p className="splash-subhead">
                             Chat with whoever, whenever, wherever
                         </p>
@@ -67,6 +68,7 @@ export default class HomePage extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
                 <Footer />
             </>
