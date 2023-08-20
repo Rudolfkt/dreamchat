@@ -12,7 +12,6 @@ export default class HomePage extends Component {
         return (
             <>
                 <Header/>
-                <div>
                 <div className="splash-container">
                     <div className="splash">
                         <h1 className="splash-head">Dream Chat</h1>
@@ -41,7 +40,7 @@ export default class HomePage extends Component {
                             </div>
                             <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                                 <h3 className="content-subhead">
-                                    <i className=" fa fa-sign-in"></i>
+                                    <i className="fa fa-sign-in"></i>
                                     Firebase Authentication
                                 </h3>
                                 <p>
@@ -67,9 +66,25 @@ export default class HomePage extends Component {
                                 </p>
                             </div>
                         </div>
+
+                        <div className="Appfeatures"> {/* Moved the form section here */}
+                            <div className="l-box-lrg pure-u-1 pure-u-md-2-5">
+                                <form className="pure-form pure-form-stacked">
+                                    <fieldset>
+                                        <label htmlFor="email">Your Email</label>
+                                        <input id="email" type="email" placeholder="Your Email" />
+
+                                        <label htmlFor="password">Your Password</label>
+                                        <input id="password" type="password" placeholder="Your Password" />
+
+                                        <button type="submit" className="pure-button">SignUp</button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
+
                 <Footer />
             </>
         );
