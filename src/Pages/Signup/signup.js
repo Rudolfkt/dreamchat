@@ -5,15 +5,15 @@ import firebase from "../../Services/firebase";
 import { Card } from 'react-bootstrap';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextFField';
-import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import LoginStrings from '../Login/LoginStrings';
+import { auth, firestore } from "../../Services/firebase";
+
 
 const theme = createMuiTheme();
 
-export default class SignUp extends Component{
+export default class SignUp extends Component {
     constructor() {
         super();
         this.state = {
@@ -21,7 +21,6 @@ export default class SignUp extends Component{
             password: "",
             name: "",
             error: null
-
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,66 +31,48 @@ export default class SignUp extends Component{
             [e.target.name]: e.target.value
         });
     };
-    async handleSubmit(e){
+
+    handleSubmit = async (e) => {
         e.preventDefault();
-        const { name, password, email }=this.state;
+        const { name, password, email } = this.state;
         try {
-            const result = await firebase.auth().createUserWithEmailAndPassword(email, password);  
-            const docRef = await firebase.firestore().collection('users')
-                .add({
-                    name,
-                    id: result.user.uid,
-                    email,
-                    password,
-                    URL:'',
-                    messages:[{notificationId:"" ,number: 0}]
-                });
-                    localStorage.setItem(LoginStrings.ID, result.user.uid);
-                    localStorage.setItem(LoginStrings.Name, name);
-                    localStorage.setItem(LoginStrings.Email, email);
-                    localStorage.setItem(LoginStrings.Password, password);
-                    localStorage.setItem(LoginStrings.PhotoURL, "");
-                    localStorage.setItem(LoginStrings.UPLOAD_CHANGED, 'state_changed');
-                    localStorage.setItem(LoginStrings.Description, "");
-                    localStorage.setItem(LoginStrings.FirebaseDocumentId, docRef.id);
-                    this.setState({
-                        name: '',
-                        password: '',
-                        url:'',
+            const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
+            const docRef = await firebase.firestore().collection('users').add({
+                name,
+                id: result.user.uid,
+                email,
+                password,
+                URL: '',
+                messages: [{ notificationId: "", number: 0 }]
+            });
 
-                    });
-                    this.props.history.push('/chat');
+            localStorage.setItem(LoginStrings.ID, result.user.uid);
+            localStorage.setItem(LoginStrings.Name, name);
+            localStorage.setItem(LoginStrings.Email, email);
+            localStorage.setItem(LoginStrings.Password, password);
+            localStorage.setItem(LoginStrings.PhotoURL, "");
+            localStorage.setItem(LoginStrings.UPLOAD_CHANGED, 'state_changed');
+            localStorage.setItem(LoginStrings.Description, "");
+            localStorage.setItem(LoginStrings.FirebaseDocumentId, docRef.id);
 
+            this.setState({
+                name: '',
+                password: '',
+                email: '',
+            });
+
+            this.props.history.push('/chat');
+        } catch (error) {
+            document.getElementById('1').innerHTML = "Error in signing up. Please try again.";
         }
-        catch(error){
-            document.getElementById('1').innerHTML = "Error in signing up please try"
-         }
+    };
 
-    }
     render() {
-        const classes = useStyles();
-        const useStyles = makeStyles((theme) => ({
-            SigninSee : {
-            display: 'flex',
-            flexDiection: 'column',
-            alignitems: 'center',
-            color: 'White',
-            backgroundColor: '#1ebea0',
-            width:"100%",
-            boxShadow: '0 5px 5px #808888',
-            height: "10rem",
-            paddingTop: "48px",
-            opacity: "0.5",
-            borderBottom: '5px solid green',
-            },
-        }));
-        
-
-        return(
+        return (
             <MuiThemeProvider theme={theme}>
                 <React.Fragment>
                     <div>
-                        <CssBaseline/>
+                        <CssBaseline />
                             <Card style={Signinsee}>
                                 <div>
                                     <Typography Component="h1" variant="h5">
@@ -179,6 +160,7 @@ export default class SignUp extends Component{
                     </div>
                 </React.Fragment>
             </MuiThemeProvider>
-        )
+        );
     }
 }
+
