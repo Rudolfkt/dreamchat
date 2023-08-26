@@ -25,41 +25,12 @@ class App extends Component {
     }
   }
 
-  constructor() {
-    super();
-    this.state = {
-      authenticated: false,
-      loading: true
-    };
-  }
-
-  componentDidMount() {
-    auth.onAuthStateChanged(user => {
-      console.log('onAuthStateChanged user:', user);
-
-      if (user) {
-        this.setState({
-          authenticated: true,
-          loading: false
-        });
-      } else {
-        this.setState({
-          authenticated: false,
-          loading: false
-        });
-      }
-    });
-  }
 
   render() {
     console.log('loading:', this.state.loading);
     console.log('authenticated:', this.state.authenticated);
 
-    return this.state.loading === true ? (
-      <div className="spinner-boarder text-success" role="status">
-        <span className="sr-only">Loading...</span>
-      </div>
-) : (
+    return(
   <Router>
     <ToastContainer
       autoClose={2000}
