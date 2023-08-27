@@ -36,8 +36,8 @@ export default class SignUp extends Component {
         e.preventDefault();
         const { name, password, email } = this.state;
         try {
-            const result = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            const docRef = await firebase.firestore().collection('users').add({
+            const result = await auth.createUserWithEmailAndPassword(email, password);
+            const docRef = await firestore.collection('users').add({
                 name,
                 id: result.user.uid,
                 email,
