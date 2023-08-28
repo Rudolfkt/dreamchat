@@ -2,7 +2,7 @@ const LoginString = {
     ID: 'id',
     PhotoURL: 'nickname',
     Email: 'email',
-    Password: 'image/',
+    Password: 'password',
     DOC: 'added',
     Description: 'mydescription',
     UPLOAD_CHANGED: 'STATE_changed',
