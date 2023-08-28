@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import './Signup.css';
-import firebase from "../../Services/firebase";
 import { Card } from 'react-bootstrap';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { ThemeProvider, createTheme, makeStyles } from '@mui/material/styles';
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import LoginStrings from '../Login/LoginStrings';
 import { auth, firestore } from "../../Services/firebase";
 
 
-const theme = createMuiTheme();
+const theme = createTheme();
 
 export default class SignUp extends Component {
     constructor() {
@@ -69,11 +68,11 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            <MuiThemeProvider theme={theme}>
+            <ThemeProvider theme={theme}>
                 <React.Fragment>
                     <div>
                         <CssBaseline />
-                            <Card style={Signinsee}>
+                            <Card className="Signinsee">
                                 <div>
                                     <Typography Component="h1" variant="h5">
                                         Sign Up
@@ -82,7 +81,7 @@ export default class SignUp extends Component {
                                 </div>
                                 <div>
                                     <link to="/">
-                                    <button class ="btn"><i class="fa fa-home">DreamChat</i></button>  
+                                    <button className ="btn"><i className="fa fa-home">DreamChat</i></button>  
                                     </link>
                                 </div>
                             </Card>
@@ -99,7 +98,7 @@ export default class SignUp extends Component {
                                     name="email"
                                     autoComplete="email"
                                     autoFocus
-                                    onChange={this.handechange}
+                                    onChange={this.handleChange}
                                     value={this.state.email}
                                     />
                                     <div>
@@ -116,8 +115,7 @@ export default class SignUp extends Component {
                                     name="password"
                                     type="password"
                                     autoComplete="current-password"
-                                    autoFocus
-                                    onChange={this.handechange}
+                                    onChange={this.handleChange}
                                     value={this.state.password}
                                     />
 
@@ -131,8 +129,7 @@ export default class SignUp extends Component {
                                     name="name"
                                     type="name"
                                     autoComplete="name"
-                                    autoFocus
-                                    onChange={this.handechange}
+                                    onChange={this.handleChange}
                                     value={this.state.name}
                                     />
 
@@ -159,7 +156,7 @@ export default class SignUp extends Component {
                             </Card>
                     </div>
                 </React.Fragment>
-            </MuiThemeProvider>
+            </ThemeProvider>
         );
     }
 }
