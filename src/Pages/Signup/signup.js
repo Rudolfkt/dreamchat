@@ -80,9 +80,9 @@ export default class SignUp extends Component {
                                     </Typography>
                                 </div>
                                 <div>
-                                    <link to="/">
+                                    <Link to="/">
                                     <button className ="btn"><i className="fa fa-home">DreamChat</i></button>  
-                                    </link>
+                                    </Link>
                                 </div>
                             </Card>
                             <Card className="formacontrooulside">
