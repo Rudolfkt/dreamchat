@@ -67,12 +67,26 @@ export default class SignUp extends Component {
     };
 
     render() {
+        const Signinsee = {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            color: 'White',
+            backgroundcolor: '#1ebea5',
+            width: '100',
+            boxShadow: "0 5px #808888",
+            height: "10rem",
+            paddingTop: "48px",
+            borderBottom: '5px solid green',
+        }
+    
         return (
             <ThemeProvider theme={theme}>
                 <React.Fragment>
                     <div>
                         <CssBaseline />
                             <Card className="Signinsee">
+
                                 <div>
                                     <Typography Component="h1" variant="h5">
                                         Sign Up
@@ -81,13 +95,13 @@ export default class SignUp extends Component {
                                 </div>
                                 <div>
                                     <Link to="/">
-                                    <button className ="btn"><i className="fa fa-home">DreamChat</i></button>  
+                                    <button className ="btn"><i className="fa fa-home"> Dream Chat</i></button>  
                                     </Link>
                                 </div>
                             </Card>
                             <Card className="formacontrooulside">
+                                
                                 <form className="customform" noValidate onSubmit={this.handleSubmit}>
-
                                     <TextField
                                     variant="outlined"
                                     margin="normal"
