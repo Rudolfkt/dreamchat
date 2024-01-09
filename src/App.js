@@ -2,13 +2,13 @@ import React,{ Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import {Navigate} from 'react-router-dom';
-import Home from './Pages/Home/Home';
-import Chat from './Pages/Chat/Chat';
-import Profile from './Pages/Profile/Profile';
-import Signup from './Pages/Signup/Signup';
-import Login from './Pages/Login/Login';
-import {app, auth} from './Services/firebase'; // Update the import statement
-import { toast, ToastContainer } from 'react-toastify';
+import Home from './Pages/Home/home';
+import Chat from './Pages/Chat/chat';
+import Profile from './Pages/Profile/profile';
+import Signup from './Pages/Signup/signup';
+import Login from './Pages/Login/login';
+import {app, auth} from './Services/firebase';
+import {toast, ToastContainer} from 'react-toastify';
 
 
 class App extends Component {
@@ -46,11 +46,11 @@ class App extends Component {
       position={toast.POSITION.BOTTOM_CENTER}
     />
       <Routes>
-        <Route exact path="/" element={<Home showToast={this.showToast} />} />
-        <Route path="/Login" element={<Login showToast={this.showToast} />} />
-        <Route path="/Profile" element={<Profile showToast={this.showToast} />} />
-        <Route path="/Signup" element={<Signup showToast={this.showToast} />} />
-        <Route path="/Chat" element={<Chat showToast={this.showToast} />} />
+        <Route exact path="/" element={<Home showToast={this.showToast}/>} />
+        <Route path="/Login" element={<Login showToast={this.showToast}/>} />
+        <Route path="/Profile" element={<Profile showToast={this.showToast}/>} />
+        <Route path="/Signup" element={<Signup showToast={this.showToast}/>} />
+        <Route path="/Chat" element={<Chat showToast={this.showToast}/>} />
         {/* Use Navigate to handle redirect */}
         <Route path="*" element={<Navigate to="./" />} />
       </Routes>

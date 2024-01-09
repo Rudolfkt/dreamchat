@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
-import './Home.css';
-import Images from '../../ProjectImages/ProjectImages';
+import Header from '../../Components/header';
+import Footer from '../../Components/footer';
+import './home.css';
+import Images from '../../ProjectImages/projectimages';
 import { Link } from 'react-router-dom';
 
 export default class HomePage extends Component {
@@ -90,3 +90,5 @@ export default class HomePage extends Component {
         );
     }
 }
+
+

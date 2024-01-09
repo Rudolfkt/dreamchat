@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Chat extends React.Component{
+export default class chat extends React.Component{
     constructor(props){
         super(props)
     }
