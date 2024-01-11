@@ -2,12 +2,11 @@ import React,{ Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import {Navigate} from 'react-router-dom';
-import Home from './Pages/Home/home';
-import Chat from './Pages/Chat/chat';
-import Profile from './Pages/Profile/profile';
-import Signup from './Pages/Signup/signup';
-import Login from './Pages/Login/login';
-import {app, auth} from './Services/firebase';
+import Home from './Pages/Home/Home' 
+import Chat from './Pages/Chat/Chat';
+import Profile from './Pages/Profile/Profile';
+import Signup from './Pages/Signup/Signup';
+import Login from './Pages/Login/Login';
 import {toast, ToastContainer} from 'react-toastify';
 
 

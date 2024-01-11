@@ -9,10 +9,9 @@ import Typography from '@mui/material/Typography';
 import LoginStrings from '../Login/LoginStrings';
 import { auth, firestore } from "../../Services/firebase";
 
-
 const theme = createTheme();
 
-export default class SignUp extends Component {
+export default class Signup extends Component {
     constructor() {
         super();
         this.state = {
@@ -36,33 +35,36 @@ export default class SignUp extends Component {
         const { name, password, email } = this.state;
         try {
             const result = await auth.createUserWithEmailAndPassword(email, password);
-            const docRef = await firestore.collection('users').add({
+            firestore.collection('users').add({
                 name,
                 id: result.user.uid,
                 email,
                 password,
                 URL: '',
+
                 messages: [{ notificationId: "", number: 0 }]
+            }).then((docRef) => {
+                localStorage.setItem(LoginStrings.ID, result.user.uid);
+                localStorage.setItem(LoginStrings.Name, name);
+                localStorage.setItem(LoginStrings.Email, email);
+                localStorage.setItem(LoginStrings.Password, password);
+                localStorage.setItem(LoginStrings.PhotoURL, "");
+                localStorage.setItem(LoginStrings.UPLOAD_CHANGED, 'state_changed');
+                localStorage.setItem(LoginStrings.Description, "");
+                localStorage.setItem(LoginStrings.FirebaseDocumentId, docRef.id);
+
+                this.setState({
+                    name: '',
+                    password: '',
+                    url: '',
+
+                });
+                this.props.history.push("/Chat");
             });
 
-            localStorage.setItem(LoginStrings.ID, result.user.uid);
-            localStorage.setItem(LoginStrings.Name, name);
-            localStorage.setItem(LoginStrings.Email, email);
-            localStorage.setItem(LoginStrings.Password, password);
-            localStorage.setItem(LoginStrings.PhotoURL, "");
-            localStorage.setItem(LoginStrings.UPLOAD_CHANGED, 'state_changed');
-            localStorage.setItem(LoginStrings.Description, "");
-            localStorage.setItem(LoginStrings.FirebaseDocumentId, docRef.id);
 
-            this.setState({
-                name: '',
-                password: '',
-                email: '',
-            });
-
-            this.props.history.push('/chat');
         } catch (error) {
-            document.getElementById('1').innerHTML = "Error in signing up. Please try again.";
+            document.getElementById('1').innerHTML = "Error in signing up. Please try again."
         }
     };
 
@@ -78,7 +80,7 @@ export default class SignUp extends Component {
             height: "10rem",
             paddingTop: "48px",
             borderBottom: '5px solid green',
-        }
+        };
     
         return (
             <ThemeProvider theme={theme}>
@@ -158,7 +160,7 @@ export default class SignUp extends Component {
                                     </div>
                                     <div>
                                     <p style={{code:'grey',fontSize:'15px' ,marginLeft:'0'}}>Already have an account ?</p>
-                                    <Link to="/login">
+                                    <Link to="/Login">
                                         Login In
                                     </Link>
                                     </div>
