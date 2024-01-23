@@ -46,9 +46,9 @@ class App extends Component {
     />
       <Routes>
         <Route exact path="/" element={<Home showToast={this.showToast}/>} />
+        <Route path="/Signup" element={<Signup showToast={this.showToast}/>} />
         <Route path="/Login" element={<Login showToast={this.showToast}/>} />
         <Route path="/Profile" element={<Profile showToast={this.showToast}/>} />
-        <Route path="/Signup" element={<Signup showToast={this.showToast}/>} />
         <Route path="/Chat" element={<Chat showToast={this.showToast}/>} />
         {/* Use Navigate to handle redirect */}
         <Route path="*" element={<Navigate to="./" />} />

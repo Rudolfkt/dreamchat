@@ -81,6 +81,7 @@ export default class Signup extends Component {
             paddingTop: "48px",
             borderBottom: '5px solid green',
         };
+        
     
         return (
             <ThemeProvider theme={theme}>
@@ -154,7 +155,7 @@ export default class Signup extends Component {
                                     </div>
 
                                     <div className="CenterAligningItem">
-                                        <button class="button" type="submit">
+                                        <button className="button" type="submit">
                                             <span>Sign Up</span>
                                         </button>
                                     </div>
