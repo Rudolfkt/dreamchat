@@ -20,8 +20,8 @@ export default class Signup extends Component {
             name: "",
             error: null
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange = (e) => {
@@ -32,7 +32,7 @@ export default class Signup extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        const { name, password, email } = this.state;
+        const {name,password,email}=this.state;
         try {
             const result = await auth.createUserWithEmailAndPassword(email, password);
             firestore.collection('users').add({
@@ -41,8 +41,8 @@ export default class Signup extends Component {
                 email,
                 password,
                 URL: '',
+                messages:[{notificationId:"",number: 0}]
 
-                messages: [{ notificationId: "", number: 0 }]
             }).then((docRef) => {
                 localStorage.setItem(LoginStrings.ID, result.user.uid);
                 localStorage.setItem(LoginStrings.Name, name);
@@ -98,7 +98,7 @@ export default class Signup extends Component {
                                 </div>
                                 <div>
                                     <Link to="/">
-                                    <button className ="btn"><i className="fa fa-home"> Dream Chat</i></button>  
+                                    <button class="btn"><i class="fa fa-home"> Dream Chat</i></button>  
                                     </Link>
                                 </div>
                             </Card>
@@ -111,7 +111,7 @@ export default class Signup extends Component {
                                     required
                                     fullWidth
                                     id = "email"
-                                    label = "Email Adress-example:abc@gmail"
+                                    label = "Email Address-example:abc@gmail"
                                     name="email"
                                     autoComplete="email"
                                     autoFocus
@@ -119,7 +119,7 @@ export default class Signup extends Component {
                                     value={this.state.email}
                                     />
                                     <div>
-                                        <p style={{code:'grey',fontSize:'15px' ,marginLeft:'0'}}>Password should be 6 or more characters</p>
+                                        <p style={{color:'grey',fontSize:'15px' ,marginLeft:'0'}}>Password should be 6 or more characters</p>
                                     </div>
 
                                     <TextField
@@ -151,16 +151,16 @@ export default class Signup extends Component {
                                     />
 
                                     <div>
-                                        <p style={{code:'grey',fontSize:'15px' ,marginLeft:'0'}}>fields cannot be left empty</p>
+                                        <p style={{color:'grey',fontSize:'15px'}}>fields cannot be left empty</p>
                                     </div>
 
-                                    <div className="CenterAligningItem">
-                                        <button className="button" type="submit">
+                                    <div className="CenterAligningItems">
+                                        <button class="button1" type="submit">
                                             <span>Sign Up</span>
                                         </button>
                                     </div>
                                     <div>
-                                    <p style={{code:'grey',fontSize:'15px' ,marginLeft:'0'}}>Already have an account ?</p>
+                                    <p style={{color:'grey'}}>Already have an account ?</p>
                                     <Link to="/Login">
                                         Login In
                                     </Link>

@@ -11,13 +11,7 @@ import {toast, ToastContainer} from 'react-toastify';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      authenticated: false,
-    };
-  }
+
   
   showToast = (type, message) => {
     switch (type) {

@@ -7,8 +7,9 @@ export default class Chat extends React.Component{
     render(){
         return(
             <div>
-                The Chat component
+                <p style={{color:'grey',fontSize:'15px' ,marginLeft:'0'}}>chat component</p>
             </div>
         )
     }
+    
 }
