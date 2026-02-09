@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+
+/* Global responsive helpers */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Provide bottom padding so a fixed footer doesn't cover content on desktop */
+body {
+  padding-bottom: 80px; /* space for footer */
+}
+
+/* Content container utility */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Adjust layout for small screens */
+@media (max-width: 600px) {
+  .App-header {
+    padding: 16px;
+    font-size: calc(12px + 2vmin);
+  }
+
+  body {
+    padding-bottom: 40px; /* less footer space when footer is static */
+  }
+}
