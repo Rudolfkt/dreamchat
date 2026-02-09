@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../../Components/header';
 import Footer from '../../Components/footer';
 import './home.css';
-import Images from '../../ProjectImages/projectimages';
 import { Link } from 'react-router-dom';
 
 export default function HomePage() {
@@ -16,7 +15,7 @@ export default function HomePage() {
                     <h1 className="splash-head">Dream Chat</h1>
                     <p className="splash-subhead">Chat with whoever, whenever, wherever</p>
                     <div>
-                        <span>Get Started</span>
+                        <Link to="/Signup" className="get-started-link"><span>Get Started</span></Link>
                     </div>
                 </div>
             </div>
