@@ -1,19 +1,25 @@
-import React,{ Component } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
-import {Navigate} from 'react-router-dom';
-import Home from './Pages/Home/Home' 
-import Chat from './Pages/Chat/Chat';
-import Profile from './Pages/Profile/Profile';
-import Signup from './Pages/Signup/Signup';
-import Login from './Pages/Login/Login';
-import {toast, ToastContainer} from 'react-toastify';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './Pages/Home/home';
+import Chat from './Pages/Chat/chat';
+import Profile from './Pages/Profile/profile';
+import Signup from './Pages/Signup/signup';
+import Login from './Pages/Login/login';
+import { toast, ToastContainer } from 'react-toastify';
 
+function App() {
+  // keep the same pieces of state the original component referenced
+  const loading = false;
+  const authenticated = false;
 
-class App extends Component {
+  useEffect(() => {
+    // preserve the console logs from the original class component
+    console.log('loading:', loading);
+    console.log('authenticated:', authenticated);
+  }, [loading, authenticated]);
 
-  
-  showToast = (type, message) => {
+  const showToast = (type, message) => {
     switch (type) {
       case 0:
         toast.warning(message);
@@ -24,31 +30,22 @@ class App extends Component {
       default:
         break;
     }
-  }
+  };
 
-
-  render() {
-    console.log('loading:', this.state.loading);
-    console.log('authenticated:', this.state.authenticated);
-
-    return(
-  <Router>
-    <ToastContainer
-      autoClose={2000}
-      hideProgressBar={true}
-      position={toast.POSITION.BOTTOM_CENTER}
-    />
+  return (
+    <Router>
+      <ToastContainer autoClose={2000} hideProgressBar position={toast.POSITION.BOTTOM_CENTER} />
       <Routes>
-        <Route exact path="/" element={<Home showToast={this.showToast}/>} />
-        <Route path="/Signup" element={<Signup showToast={this.showToast}/>} />
-        <Route path="/Login" element={<Login showToast={this.showToast}/>} />
-        <Route path="/Profile" element={<Profile showToast={this.showToast}/>} />
-        <Route path="/Chat" element={<Chat showToast={this.showToast}/>} />
-        {/* Use Navigate to handle redirect */}
-        <Route path="*" element={<Navigate to="./" />} />
+        <Route path="/" element={<Home showToast={showToast} />} />
+        <Route path="/Signup" element={<Signup showToast={showToast} />} />
+        <Route path="/Login" element={<Login showToast={showToast} />} />
+        <Route path="/Profile" element={<Profile showToast={showToast} />} />
+        <Route path="/Chat" element={<Chat showToast={showToast} />} />
+        {/* catch-all redirect to root */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
- }
 }
+
 export default App;
