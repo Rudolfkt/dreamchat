@@ -14,10 +14,8 @@ function Header(){
                     <Link to="/">Contact us</Link>
                 </nav>
                 <ul>
-                    <nav>
                     <li><Link to="/Login">Login</Link></li>
                     <li><Link to="/Signup">Sign Up</Link></li>
-                    </nav>
                 </ul>
             </div>
 

@@ -12,7 +12,7 @@ export default function HomePage() {
             <Header />
             <div className="splash-container">
                 <div className="splash">
-                    <h1 className="splash-head">Dream Chat</h1>
+                    <h1 className="splash-head">Dream Chatt</h1>
                     <p className="splash-subhead">Chat with whoever, whenever, wherever</p>
                     <div>
                         <Link to="/Signup" className="get-started-link"><span>Get Started</span></Link>
