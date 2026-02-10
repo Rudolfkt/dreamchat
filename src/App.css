@@ -1,96 +1,31 @@
-.App {
-  text-align: center;
-}
+/* ============================================
+   APP-LEVEL LAYOUT
+   ============================================ */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Page wrapper — each page fills available space between header & footer */
+.page-wrapper {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Global responsive helpers */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* iOS safe-area insets for notch devices */
-:root {
-  --safe-top: env(safe-area-inset-top);
-  --safe-right: env(safe-area-inset-right);
-  --safe-bottom: env(safe-area-inset-bottom);
-  --safe-left: env(safe-area-inset-left);
-}
-
-/* Legacy iOS support using constant() fallback */
-body {
-  padding-top: constant(safe-area-inset-top);
-  padding-right: constant(safe-area-inset-right);
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-left: constant(safe-area-inset-left);
-  padding-top: var(--safe-top);
-  padding-right: var(--safe-right);
-  padding-bottom: var(--safe-bottom);
-  padding-left: var(--safe-left);
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Provide bottom padding so a fixed footer doesn't cover content on desktop */
-body {
-  padding-bottom: 80px; /* space for footer */
 }
 
 /* Content container utility */
 .container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 var(--space-6);
   box-sizing: border-box;
 }
 
-/* Adjust layout for small screens */
-@media (max-width: 600px) {
-  .App-header {
-    padding: 16px;
-    font-size: calc(12px + 2vmin);
-  }
+.container-sm {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
 
-  body {
-    padding-bottom: 40px; /* less footer space when footer is static */
-  }
+/* Toast container style override */
+.Toastify__toast-container {
+  z-index: 10000 !important;
 }

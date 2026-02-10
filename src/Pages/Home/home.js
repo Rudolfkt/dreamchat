@@ -5,75 +5,82 @@ import './home.css';
 import { Link } from 'react-router-dom';
 
 export default function HomePage() {
-    console.log('HomePage rendered');
-
     return (
         <>
             <Header />
-            <div className="splash-container">
+
+            {/* Hero Section */}
+            <section className="splash-container">
                 <div className="splash">
                     <h1 className="splash-head">Vibe Chat</h1>
-                    <p className="splash-subhead">Chat with whoever, whenever, wherever</p>
-                    <div>
-                        <Link to="/Signup" className="get-started-link"><span>Get Started</span></Link>
-                    </div>
+                    <p className="splash-subhead">
+                        Chat with whoever, whenever, wherever
+                    </p>
+                    <Link to="/Signup" className="get-started-link">
+                        <span>Get Started</span>
+                        <i className="fa fa-arrow-right" />
+                    </Link>
                 </div>
-            </div>
+            </section>
 
-            <div className="content-wrapper">
+            {/* Features Section */}
+            <section className="content-wrapper">
                 <div className="content">
-                    <h2 className="content-head is-center">Features of Dream Chat</h2>
+                    <h2 className="content-head is-center">
+                        Features of DreamChat
+                    </h2>
 
                     <div className="Appfeatures">
-                        <div className="contenthead">
+                        <div>
                             <h3 className="content-subhead">
-                                <i className="fa fa-rocket"></i>
+                                <i className="fa fa-rocket" />
                                 Get Started Quickly
                             </h3>
-                            <p>Just register and dreamchat away</p>
+                            <p>Create an account in seconds and start chatting with friends right away.</p>
                         </div>
-                        <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                        <div>
                             <h3 className="content-subhead">
-                                <i className="fa fa-sign-in"></i>
-                                Firebase Authentication
+                                <i className="fa fa-shield" />
+                                Secure Authentication
                             </h3>
-                            <p>Firebase Authentication has been implemented in this app</p>
+                            <p>Powered by Firebase Authentication — your data is safe and encrypted.</p>
                         </div>
-                        <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                        <div>
                             <h3 className="content-subhead">
-                                <i className="fa fa-th-large"></i>
-                                Media
+                                <i className="fa fa-image" />
+                                Share Media
                             </h3>
-                            <p>Share images with friends</p>
+                            <p>Send images and media to your friends with a tap.</p>
                         </div>
-                        <div className="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                        <div>
                             <h3 className="content-subhead">
-                                <i className="fa fa-refresh"></i>
-                                Update
+                                <i className="fa fa-bolt" />
+                                Real-time Updates
                             </h3>
-                            <p>Stay tuned for new features</p>
+                            <p>Instant messaging powered by Firestore — messages arrive in real time.</p>
                         </div>
                     </div>
 
-                    <div className="Appfeatures"> {/* Moved the form section here */}
-                        <div className="l-box-lrg pure-u-1 pure-u-md-2-5">
+                    {/* Quick Sign-up Form */}
+                    <div className="Appfeatures" style={{ justifyContent: 'center' }}>
+                        <div style={{ maxWidth: 480, width: '100%' }}>
                             <form className="pure-form pure-form-stacked">
                                 <fieldset>
                                     <label htmlFor="email">Your Email</label>
-                                    <input id="email" type="email" placeholder="Your Email" />
+                                    <input id="email" type="email" placeholder="you@example.com" />
 
                                     <label htmlFor="password">Your Password</label>
-                                    <input id="password" type="password" placeholder="Your Password" />
+                                    <input id="password" type="password" placeholder="••••••••" />
 
                                     <button type="submit" className="pure-button">
-                                        SignUp
+                                        Sign Up Free
                                     </button>
                                 </fieldset>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <Footer />
         </>

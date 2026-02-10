@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './signup.css';
-import { Card } from 'react-bootstrap';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
 import LoginStrings from '../Login/LoginStrings';
 import { auth, firestore } from '../../Services/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { collection, addDoc } from 'firebase/firestore';
 
-const theme = createTheme();
-
-export default function Signup(props) {
+export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -50,121 +44,83 @@ export default function Signup(props) {
             localStorage.setItem(LoginStrings.Description, '');
             localStorage.setItem(LoginStrings.FirebaseDocumentId, docRef.id);
 
-            // reset form
             setName('');
             setPassword('');
-            // navigate to chat
             navigate('/Chat');
         } catch (err) {
             console.error('signup error', err);
-            // show the real error message when available
-            setError(err?.message || 'Error in signing up. Please try again.');
+            setError(err?.message || 'Error signing up. Please try again.');
         }
     };
 
-    const headerStyle = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        color: 'white',
-        backgroundColor: '#1ebea5',
-        width: '100%',
-        boxShadow: '0 5px #808888',
-        height: '10rem',
-        paddingTop: '48px',
-        borderBottom: '5px solid green',
-    };
-
     return (
-        <ThemeProvider theme={theme}>
-            <React.Fragment>
-                <div>
-                    <CssBaseline />
-                    <Card style={headerStyle}>
-                        <div>
-                            <Typography component="h1" variant="h5">
-                                Sign Up To
-                            </Typography>
-                        </div>
-                        <div>
-                            <Link to="/">
-                                <button className="btn">
-                                    <i className="fa fa-home" /> Dream Chat
-                                </button>
-                            </Link>
-                        </div>
-                    </Card>
+        <div className="signup-page">
+            <div className="signup-header">
+                <h1>Create Your Account</h1>
+                <Link to="/" className="home-btn">
+                    <i className="fa fa-home" /> DreamChat
+                </Link>
+            </div>
 
-                    <Card className="formacontrooutside">
-                        <form className="customform" noValidate onSubmit={handleSubmit}>
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address - example: abc@gmail.com"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                                onChange={handleChange}
-                                value={email}
-                            />
-                            <div>
-                                <p style={{ color: 'grey', fontSize: '15px', marginLeft: 0 }}>
-                                    Password should be 6 or more characters
-                                </p>
-                            </div>
+            <div className="signup-form-wrapper">
+                <form className="signup-form" noValidate onSubmit={handleSubmit}>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                        onChange={handleChange}
+                        value={email}
+                    />
 
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="password"
-                                label="Your Password eg : *******"
-                                name="password"
-                                type="password"
-                                autoComplete="current-password"
-                                onChange={handleChange}
-                                value={password}
-                            />
+                    <p className="hint-text">Password should be 6 or more characters</p>
 
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="name"
-                                label="Your Name"
-                                name="name"
-                                onChange={handleChange}
-                                value={name}
-                            />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="password"
+                        label="Password"
+                        name="password"
+                        type="password"
+                        autoComplete="new-password"
+                        onChange={handleChange}
+                        value={password}
+                    />
 
-                            <div>
-                                <p style={{ color: 'grey', fontSize: '15px' }}>fields cannot be left empty</p>
-                            </div>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="name"
+                        label="Your Name"
+                        name="name"
+                        onChange={handleChange}
+                        value={name}
+                    />
 
-                            <div className="CenterAliningItems">
-                                <button className="btn" type="submit">
-                                    <span>Sign Up</span>
-                                </button>
-                            </div>
+                    <button className="submit-btn" type="submit">
+                        Sign Up
+                    </button>
 
-                            <div>
-                                <p style={{ color: 'grey' }}>Already have an account ?</p>
-                                <Link to="/Login">Login In</Link>
-                            </div>
+                    <div className="login-link">
+                        <p>Already have an account?</p>
+                        <Link to="/Login">Log In</Link>
+                    </div>
 
-                            <div className="error">
-                                <p id="1" style={{ color: 'red' }}>{error}</p>
-                            </div>
-                        </form>
-                    </Card>
-                </div>
-            </React.Fragment>
-        </ThemeProvider>
+                    {error && (
+                        <p className="error-message">{error}</p>
+                    )}
+                </form>
+            </div>
+        </div>
     );
 }
 

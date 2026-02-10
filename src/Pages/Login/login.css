@@ -1,0 +1,127 @@
+/* ============================================
+   LOGIN PAGE — Matches signup design
+   ============================================ */
+
+.login-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-lighter) 50%, #2a3a7c 100%);
+}
+
+.login-header {
+  text-align: center;
+  padding: var(--space-12) var(--space-6) var(--space-8);
+}
+
+.login-header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-4);
+}
+
+.login-header .home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  border: none;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(30, 190, 165, 0.3);
+}
+
+.login-header .home-btn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.login-form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--space-6) var(--space-12);
+}
+
+.login-form {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+  width: 100%;
+  max-width: 460px;
+  box-shadow: var(--shadow-xl);
+}
+
+.login-form .MuiTextField-root {
+  margin-bottom: var(--space-4) !important;
+}
+
+.login-form .submit-btn {
+  width: 100%;
+  padding: var(--space-3) var(--space-6);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-top: var(--space-4);
+  box-shadow: 0 4px 15px rgba(30, 190, 165, 0.3);
+}
+
+.login-form .submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.login-form .signup-link {
+  text-align: center;
+  margin-top: var(--space-6);
+}
+
+.login-form .signup-link p {
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+}
+
+.login-form .signup-link a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.login-form .signup-link a:hover {
+  color: var(--color-primary-dark);
+}
+
+.login-form .error-message {
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .login-header {
+    padding: var(--space-8) var(--space-4) var(--space-6);
+  }
+
+  .login-form {
+    padding: var(--space-8) var(--space-6);
+    border-radius: var(--radius-lg);
+  }
+
+  .login-form-wrapper {
+    padding: 0 var(--space-4) var(--space-8);
+  }
+}
