@@ -1,8 +1,11 @@
 .header-login-signup{
 	background-color:#1ebea5;
 	box-shadow:0 1px 1px #ccc;
-	padding: 20px 40px;
-	height: 80px;
+	/* add safe-area top padding for notch devices */
+	padding: calc(20px + env(safe-area-inset-top)) 40px 20px 40px;
+	/* legacy fallback */
+	padding-top: calc(20px + constant(safe-area-inset-top));
+	height: auto; /* let content determine height */
 	color: #ffffff;
 	box-sizing: border-box;
 }
