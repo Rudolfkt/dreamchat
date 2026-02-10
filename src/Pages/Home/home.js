@@ -12,7 +12,7 @@ export default function HomePage() {
             <Header />
             <div className="splash-container">
                 <div className="splash">
-                    <h1 className="splash-head">Dream Chattty</h1>
+                    <h1 className="splash-head">Vibe Chat</h1>
                     <p className="splash-subhead">Chat with whoever, whenever, wherever</p>
                     <div>
                         <Link to="/Signup" className="get-started-link"><span>Get Started</span></Link>
@@ -22,7 +22,7 @@ export default function HomePage() {
 
             <div className="content-wrapper">
                 <div className="content">
-                    <h2 className="content-head is-center">Features of chatApp</h2>
+                    <h2 className="content-head is-center">Features of Dream Chat</h2>
 
                     <div className="Appfeatures">
                         <div className="contenthead">
