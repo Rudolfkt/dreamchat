@@ -1,12 +1,8 @@
-/* ============================================
-   GLOBAL RESET & DESIGN TOKENS
-   Modern CSS foundation for DreamChat
-   ============================================ */
 
 /* Import Inter from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Design tokens */
+
 :root {
   /* Colors */
   --color-primary: #1ebea5;
@@ -14,16 +10,16 @@
   --color-primary-light: #e6f9f5;
   --color-accent: #e74c3c;
   --color-accent-dark: #c0392b;
-  --color-dark: #1a1d3b;
-  --color-dark-lighter: #20254d;
-  --color-text: #2d3748;
-  --color-text-light: #718096;
+  --color-dark: #161a47;
+  --color-dark-lighter: #1c1f41;
+  --color-text: #27354d;
+  --color-text-light: #6b84a8;
   --color-text-lighter: #a0aec0;
-  --color-bg: #f7f8fc;
+  --color-bg: #f5f5f5;
   --color-white: #ffffff;
-  --color-border: #e2e8f0;
+  --color-border: #e7ecf3;
   --color-card-bg: #ffffff;
-  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-shadow: rgba(29, 26, 26, 0.08);
 
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
