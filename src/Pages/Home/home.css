@@ -224,7 +224,7 @@
 }
 
 .pure-form.pure-form-stacked > div:hover {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-primary);
 }
