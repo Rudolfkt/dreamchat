@@ -175,6 +175,8 @@
   border: 1px solid var(--color-border);
   max-width: 480px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .pure-form label {
@@ -182,7 +184,8 @@
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
+  margin-left: var(--space-4);
 }
 
 .pure-form input[type] {
@@ -199,7 +202,7 @@
 
 .pure-form input[type]:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(30, 190, 165, 0.15);
+  box-shadow: 0 0 0 3px rgba(54, 173, 157, 0.15);
 }
 
 .pure-button {
@@ -218,6 +221,12 @@
 .pure-button:hover {
   opacity: 0.9;
   transform: translateY(-1px);
+}
+
+.pure-form.pure-form-stacked > div:hover {
+    transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
 }
 
 /* Hide the old layout helper classes */

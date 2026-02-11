@@ -63,21 +63,24 @@ export default function HomePage() {
 
                     {/* Quick Sign-up Form */}
                     <div className="Appfeatures" style={{ justifyContent: 'center' }}>
-                        <div style={{ maxWidth: 480, width: '100%' }}>
+                        
                             <form className="pure-form pure-form-stacked">
-                                <fieldset>
-                                    <label htmlFor="email">Your Email</label>
-                                    <input id="email" type="email" placeholder="you@example.com" />
+                            
+                                    <label htmlFor="email">E-mail</label>
+                                    <input id="email" type="email" placeholder="you@gmail.com" />
 
-                                    <label htmlFor="password">Your Password</label>
+                                    <label htmlFor="password">Create Password</label>
                                     <input id="password" type="password" placeholder="••••••••" />
+
+                                    <label htmlFor="username">Enter Username</label>
+                                    <input id="username" type="text" placeholder="Your Username" />
 
                                     <button type="submit" className="pure-button">
                                         Sign Up Free
                                     </button>
-                                </fieldset>
+                                
                             </form>
-                        </div>
+                        
                     </div>
                 </div>
             </section>

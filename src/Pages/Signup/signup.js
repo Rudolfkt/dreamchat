@@ -56,7 +56,7 @@ export default function Signup() {
     return (
         <div className="signup-page">
             <div className="signup-header">
-                <h1>Create Your Account</h1>
+                <h1>Create New Account</h1>
                 <Link to="/" className="home-btn">
                     <i className="fa fa-home" /> DreamChat
                 </Link>
