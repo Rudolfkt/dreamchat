@@ -1,12 +1,10 @@
 import React from 'react';
+import './chat.css';
 
-export default class Chat extends React.Component{
-    render(){
-        return(
-            <div>
-                <p style={{color:'grey',fontSize:'15px' ,marginLeft:'0'}}>chat component</p>
-            </div>
-        )
-    }
-    
+export default function Chat({ showToast }) {
+    return (
+        <div className="chat-page">
+            <h1>Welcome to DreamChat</h1>
+        </div>
+    );
 }

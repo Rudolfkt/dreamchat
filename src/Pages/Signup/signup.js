@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './signup.css';
 import TextField from '@mui/material/TextField';
-import LoginStrings from '../Login/LoginStrings';
-import { auth, firestore } from '../../Services/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { collection, addDoc } from 'firebase/firestore';
+import { useSignup } from '../../hooks/hooks';
 
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
+    const { signup, error } = useSignup();
 
     const handleChange = (e) => {
         const { name: fieldName, value } = e.target;
@@ -23,34 +19,7 @@ export default function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const uid = userCredential.user.uid;
-            const docRef = await addDoc(collection(firestore, 'users'), {
-                name,
-                id: uid,
-                email,
-                password,
-                URL: '',
-                messages: [{ notificationId: '', number: 0 }],
-            });
-
-            localStorage.setItem(LoginStrings.ID, uid);
-            localStorage.setItem(LoginStrings.Name, name);
-            localStorage.setItem(LoginStrings.Email, email);
-            localStorage.setItem(LoginStrings.Password, password);
-            localStorage.setItem(LoginStrings.PhotoURL, '');
-            localStorage.setItem(LoginStrings.UPLOAD_CHANGED, 'state_changed');
-            localStorage.setItem(LoginStrings.Description, '');
-            localStorage.setItem(LoginStrings.FirebaseDocumentId, docRef.id);
-
-            setName('');
-            setPassword('');
-            navigate('/Chat');
-        } catch (err) {
-            console.error('signup error', err);
-            setError(err?.message || 'Error signing up. Please try again.');
-        }
+        await signup(email, password, name);
     };
 
     return (
