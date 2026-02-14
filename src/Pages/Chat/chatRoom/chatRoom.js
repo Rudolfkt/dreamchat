@@ -17,12 +17,12 @@ export default function ChatRoom() {
             {/* Chat Header */}
             <div className="chat-room-header">
                 <img
-                    src="https://via.placeholder.com/40"
+                    src="https://ui-avatars.com/api/?name=John+Doe&size=45&background=1ebea5&color=fff"
                     alt="Contact"
                     className="chat-room-avatar"
                 />
                 <div className="chat-room-info">
-                    <h3>Select a contact</h3>
+                    <h3>John Doe</h3>
                     <span className="chat-room-status">Online</span>
                 </div>
             </div>
@@ -32,7 +32,7 @@ export default function ChatRoom() {
                 <p className="no-messages">No messages yet. Say hello!</p>
             </div>
 
-            {/* Message Input Bar */}
+            {/* Messaging Bar */}
             <form className="chat-room-input" onSubmit={handleSend}>
                 <input
                     type="text"
