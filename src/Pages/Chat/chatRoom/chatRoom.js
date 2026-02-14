@@ -29,7 +29,7 @@ export default function ChatRoom() {
 
             {/* Messages Area */}
             <div className="chat-room-messages">
-                <p className="no-messages">No messages yet. Say hello!</p>
+                <p className="no-messages">No messages. Say hello!</p>
             </div>
 
             {/* Messaging Bar */}
