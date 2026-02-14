@@ -35,6 +35,36 @@
     color: var(--color-primary);
 }
 
+.search-chat {
+    flex: 1;
+    text-align: center;
+}
+
+.search-chat input {
+    width: 50%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    background-color: var(--color-white);
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.more-options {
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);   /* makes it a circle */
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 /* -- Messages Area -- */
 .chat-room-messages {
     flex: 1;

@@ -25,6 +25,13 @@ export default function ChatRoom() {
                     <h3>John Doe</h3>
                     <span className="chat-room-status">Online</span>
                 </div>
+
+                 <div className="search-chat">
+                    <input type="text" placeholder="                                     🔍 Search chat"/>
+                </div>
+                <div className="more-options">
+                    <button type="button"><i className="fa fa-bars"></i></button>
+                </div>
             </div>
 
             {/* Messages Area */}
