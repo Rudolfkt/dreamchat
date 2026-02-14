@@ -1,20 +1,16 @@
+/* ── Two-panel chat layout ── */
 .chat-page {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    padding: 2rem;
-    text-align: center;
+    flex-direction: row;
+    height: calc(100vh - 64px);  /* full height minus header */
+    overflow: hidden;
 }
 
-.chat-page h1 {
-    font-size: 2rem;
-    color: var(--color-primary, #1ebea5);
-    margin-bottom: 1rem;
-}
-
-.chat-page p {
-    font-size: 1.1rem;
-    color: var(--color-text-light, #64748b);
+/* ── Mobile: stack panels vertically ── */
+@media (max-width: 768px) {
+    .chat-page {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 64px);
+    }
 }

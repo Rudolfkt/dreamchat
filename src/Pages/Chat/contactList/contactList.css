@@ -1,0 +1,113 @@
+/*Contact List*/
+.contact-list {
+    width: 300px;
+    height: 100%;
+    background-color: var(--color-white);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/*Profile Photo&Search*/
+.profile-photo-search-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background-color: var(--color-primary-light);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.profile-photo img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.search-bar {
+    flex: 1;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    background-color: var(--color-white);
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.search-bar input:focus {
+    border-color: var(--color-primary);
+}
+
+.search-bar input::placeholder {
+    color: var(--color-text-lighter);
+}
+
+/* ── Contact Items ── */
+.contact-list ul {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.contact-item:hover {
+    background-color: var(--color-primary-light);
+}
+
+.contact-item:active {
+    background-color: var(--color-border);
+}
+
+.contact-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.contact-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.contact-name {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.contact-last-message {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-lighter);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Mobile: full-width on small screens ── */
+@media (max-width: 768px) {
+    .contact-list {
+        width: 100%;
+        border-right: none;
+    }
+}

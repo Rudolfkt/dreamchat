@@ -1,10 +1,17 @@
 import React from 'react';
+import Header from '../../Components/header';
+import ContactList from './contactList/contactList';
+import ChatRoom from './chatRoom/chatRoom';
 import './chat.css';
 
 export default function Chat({ showToast }) {
     return (
-        <div className="chat-page">
-            <h1>Welcome to DreamChat</h1>
-        </div>
+        <>
+            <Header />
+            <div className="chat-page">
+                <ContactList />
+                <ChatRoom />
+            </div>
+        </>
     );
 }

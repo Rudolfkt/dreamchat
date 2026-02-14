@@ -7,14 +7,13 @@ import Profile from './Pages/Profile/profile';
 import Signup from './Pages/Signup/signup';
 import Login from './Pages/Login/login';
 import { toast, ToastContainer } from 'react-toastify';
+import HomePage from './Pages/Home/home';
 
 function App() {
-  // keep the same pieces of state the original component referenced
   const loading = false;
   const authenticated = false;
 
   useEffect(() => {
-    // preserve the console logs from the original class component
     console.log('loading:', loading);
     console.log('authenticated:', authenticated);
   }, [loading, authenticated]);

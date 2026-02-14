@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { collection, addDoc } from 'firebase/firestore';
 import LoginStrings from '../Pages/Login/LoginStrings';
 
-// Signup logic extracted from signup.js — reusable anywhere
+// signup logic hook 
 export function useSignup() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ export function useSignup() {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const uid = userCredential.user.uid;
 
-            // Save basic info to localStorage
+            // Save info to localStorage
             localStorage.setItem(LoginStrings.ID, uid);
             localStorage.setItem(LoginStrings.Name, name);
             localStorage.setItem(LoginStrings.Email, email);
@@ -41,7 +41,7 @@ export function useSignup() {
                 console.warn('Firestore write failed:', dbErr.message);
             }
 
-            // Navigate to Chat
+            // Nav to Chat
             navigate('/Chat');
         } catch (err) {
             console.error('signup error', err);
