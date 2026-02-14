@@ -1,12 +1,17 @@
 import React from 'react';
+import Header from '../../Components/header';
+import ContactList from './contactList/contactList';
+import ChatRoom from './chatRoom/chatRoom';
+import './chat.css';
 
-export default class Chat extends React.Component{
-    render(){
-        return(
-            <div>
-                <p style={{color:'grey',fontSize:'15px' ,marginLeft:'0'}}>chat component</p>
+export default function Chat({ showToast }) {
+    return (
+        <>
+            <Header />
+            <div className="chat-page">
+                <ContactList />
+                <ChatRoom />
             </div>
-        )
-    }
-    
+        </>
+    );
 }

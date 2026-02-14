@@ -1,0 +1,16 @@
+/* ── Two-panel chat layout ── */
+.chat-page {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 64px);  /* full height minus header */
+    overflow: hidden;
+}
+
+/* ── Mobile: stack panels vertically ── */
+@media (max-width: 768px) {
+    .chat-page {
+        flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 64px);
+    }
+}

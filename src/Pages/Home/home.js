@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../Components/header';
 import Footer from '../../Components/footer';
 import './home.css';
 import { Link } from 'react-router-dom';
+import { useSignup } from '../../hooks/hooks';
 
 export default function HomePage() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const { signup, error } = useSignup();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await signup(email, password, username);
+    };
+
     return (
         <>
             <Header />
@@ -63,24 +75,38 @@ export default function HomePage() {
 
                     {/* Quick Sign-up Form */}
                     <div className="Appfeatures" style={{ justifyContent: 'center' }}>
-                        
-                            <form className="pure-form pure-form-stacked">
-                            
-                                    <label htmlFor="email">E-mail</label>
-                                    <input id="email" type="email" placeholder="you@gmail.com" />
+                        <form className="pure-form pure-form-stacked" onSubmit={handleSubmit}>
+                            <label htmlFor="email">E-mail</label>
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="you@gmail.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
 
-                                    <label htmlFor="password">Create Password</label>
-                                    <input id="password" type="password" placeholder="••••••••" />
+                            <label htmlFor="password">Create Password</label>
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="••••••••"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
 
-                                    <label htmlFor="username">Enter Username</label>
-                                    <input id="username" type="text" placeholder="Your Username" />
+                            <label htmlFor="username">Enter Username</label>
+                            <input
+                                id="username"
+                                type="text"
+                                placeholder="Your Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
 
-                                    <button type="submit" className="pure-button">
-                                        Sign Up Free
-                                    </button>
-                                
-                            </form>
-                        
+                            <button type="submit" className="pure-button">
+                                Sign Up Free
+                            </button>
+                        </form>
                     </div>
                 </div>
             </section>

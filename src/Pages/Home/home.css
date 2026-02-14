@@ -1,8 +1,6 @@
-/* ============================================
-   HOME PAGE — Modern landing page
-   ============================================ */
+/* HOME PAGE */
 
-/* ---- HERO / SPLASH ---- */
+/* Splash Screen */
 .splash-container {
   background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-lighter) 40%, #2a3a7c 100%);
   position: relative;
@@ -14,7 +12,7 @@
   padding: var(--space-16) var(--space-6);
 }
 
-/* Decorative gradient orb */
+/* gradient orb */
 .splash-container::before {
   content: '';
   position: absolute;
@@ -62,7 +60,7 @@
   line-height: 1.5;
 }
 
-/* CTA Button */
+/* get started Button */
 .get-started-link {
   display: inline-flex;
   align-items: center;
@@ -89,7 +87,7 @@
   transform: translateY(0);
 }
 
-/* ---- CONTENT SECTION ---- */
+/* SECTION*/
 .content-wrapper {
   position: relative;
   background: var(--color-bg);
@@ -114,7 +112,7 @@
   text-align: center;
 }
 
-/* ---- FEATURE CARDS (grid) ---- */
+/* feature cards */
 .Appfeatures {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -166,7 +164,7 @@
   margin: 0;
 }
 
-/* ---- FORM SECTION ---- */
+/* Form style */
 .pure-form {
   background: var(--color-card-bg);
   border-radius: var(--radius-lg);
@@ -240,7 +238,7 @@
   width: 100%;
 }
 
-/* ---- RESPONSIVE ---- */
+/* Responsiveness*/
 @media (max-width: 768px) {
   .splash-container {
     min-height: 55vh;
@@ -284,13 +282,4 @@
   .Appfeatures {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-/* ---- Remove unused old styles ---- */
-.home-menu,
-.ribbon,
-.AppfeaturesFounder,
-.my-super-cool-btn,
-.buttoncooltext {
-  display: none;
 }
