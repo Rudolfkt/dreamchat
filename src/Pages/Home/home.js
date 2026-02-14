@@ -106,6 +106,7 @@ export default function HomePage() {
                             <button type="submit" className="pure-button">
                                 Sign Up Free
                             </button>
+                            {error && <p style={{ color: 'red', marginTop: '0.5rem' }}>{error}</p>}
                         </form>
                     </div>
                 </div>
