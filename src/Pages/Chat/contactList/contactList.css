@@ -2,21 +2,20 @@
 .contact-list {
     width: 300px;
     height: 100%;
-    background-color: var(--color-white);
+    background-color: var(--color-dark-lighter);
     border-right: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    border-bottom: 0px solid var(--color-border);
+    
+    
 }
 
-/*Profile Photo&Search*/
 .profile-photo-search-bar {
     display: flex;
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-4);
-    background-color: var(--color-primary-light);
-    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-dark);
+    border-bottom: 0px solid var(--color-border);
 }
 
 .profile-photo img {
@@ -48,13 +47,23 @@
 }
 
 .search-bar input::placeholder {
-    color: var(--color-text-lighter);
+    
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
 }
 
 /* ── Contact Items ── */
 .contact-list ul {
     flex: 1;
     overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    content: '';
+    background: radial-gradient(circle, rgba(55, 89, 163, 0.671) 0%, transparent 70%);
+    top: -100px;
+    right: -150px;
 }
 
 .contact-item {
@@ -62,13 +71,13 @@
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-3) var(--space-4);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 0px solid var(--color-border);
     cursor: pointer;
     transition: background-color var(--transition-fast);
 }
 
 .contact-item:hover {
-    background-color: var(--color-primary-light);
+    background-color: var(--color-dark-lighter);
 }
 
 .contact-item:active {
@@ -89,19 +98,21 @@
 }
 
 .contact-name {
+    font-family: var(--font-family);
     font-size: var(--font-size-base);
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-text-lighter);
     margin: 0;
 }
 
-.contact-last-message {
+.last-message {
     font-size: var(--font-size-sm);
-    color: var(--color-text-lighter);
+    color: var(--color-text-grey);
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: var(--font-family);
 }
 
 /* ── Mobile: full-width on small screens ── */

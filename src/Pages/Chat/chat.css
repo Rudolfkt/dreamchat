@@ -2,7 +2,7 @@
 .chat-page {
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 64px);  /* full height minus header */
+    height: 100vh;  /* full height — no header */
     overflow: hidden;
 }
 
@@ -11,6 +11,6 @@
     .chat-page {
         flex-direction: column;
         height: auto;
-        min-height: calc(100vh - 64px);
+        min-height: 100vh;
     }
 }
