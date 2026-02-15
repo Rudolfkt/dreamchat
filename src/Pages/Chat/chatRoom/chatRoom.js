@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './chatRoom.css';
 
-export default function ChatRoom() {
+export default function ChatRoom({ contact }) {
     const [message, setMessage] = useState('');
 
     const handleSend = (e) => {
@@ -12,17 +12,28 @@ export default function ChatRoom() {
         }
     };
 
+    // Show placeholder if no contact is selected
+    if (!contact) {
+        return (
+            <div className="chat-room">
+                <div className="chat-room-messages">
+                    <p className="no-messages">Select a contact to start chatting</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="chat-room">
             {/* Chat Header */}
             <div className="chat-room-header">
                 <img
-                    src="https://ui-avatars.com/api/?name=John+Doe&size=45&background=1ebea5&color=fff"
-                    alt="Contact"
+                    src={`https://ui-avatars.com/api/?name=${contact.name.replace(' ', '+')}&size=45&background=1ebea5&color=fff`}
+                    alt={contact.name}
                     className="chat-room-avatar"
                 />
                 <div className="chat-room-info">
-                    <h3>John Doe</h3>
+                    <h3>{contact.name}</h3>
                     <span className="chat-room-status">Online</span>
                 </div>
 
