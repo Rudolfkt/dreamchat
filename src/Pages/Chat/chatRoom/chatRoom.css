@@ -13,8 +13,18 @@
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3);
-    background-color: blur(--color-dark);
+    background-color: blur(--color-shadow);
     border-bottom: 0px solid var(--color-border);
+}
+
+
+.chat-room-empty{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-colour-dark);
+
 }
 
 .chat-room-avatar {
@@ -52,17 +62,24 @@
     transition: border-color var(--transition-fast);
 }
 
-.more-options {
-    margin-left: auto;
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);   /* makes it a circle */
-    background-color: var(--color-white);
+.more-options button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: var(--radius-full);
+    background-color: transparent;
+    color: var(--color-text-lighter);
+    font-size: var(--font-size-lg);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.more-options button:hover {
+    background-color: var(--color-dark);
+    color: var(--color-primary);
 }
 
 /* -- Messages Area -- */

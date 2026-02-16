@@ -25,6 +25,10 @@ export default function ContactList({ onSelectContact }) {
                 <div className="search-bar">
                     <input type="text" placeholder="Search"/>
                 </div>
+
+                <button type="button" className="add-contact-btn">
+                    <i className="fa fa-user-plus" />
+                </button>
             </div>
 
             <div className="contacts">
