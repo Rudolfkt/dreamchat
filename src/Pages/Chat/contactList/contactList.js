@@ -1,6 +1,6 @@
 import React from 'react';
 import './contactList.css';
-
+import { Avatar, IconButton, TextField, } from '@mui/material';
 const contacts = [
     { id: 1, name: 'John Doe', lastMessage: 'Siiiiiuuuuuuu' },
     { id: 2, name: 'Jane Smith', lastMessage: 'Cold Palmer better' },
@@ -18,9 +18,11 @@ export default function ContactList({ onSelectContact }) {
         <div className="contact-list">
 
             <div className="profile-photo-search-bar">
-                <div className="profile-photo">
-                    <img src="https://ui-avatars.com/api/?name=Rudolf&size=45&background=1ebea5&color=fff" alt="Profile" />
-                </div>
+                <Avatar
+                    src="https://ui-avatars.com/api/?name=Rudolf&size=45&background=1ebea5&color=fff"
+                    alt="Profile"
+                    sx={{ width: 40, height: 40 }}
+                />
 
                 <div className="search-bar">
                     <input type="text" placeholder="Search"/>
@@ -39,10 +41,10 @@ export default function ContactList({ onSelectContact }) {
                             className="contact-item"
                             onClick={() => onSelectContact(contact)}
                         >
-                            <img
+                            <Avatar
                                 src={`https://ui-avatars.com/api/?name=${contact.name.replace(' ', '+')}&size=45&background=1ebea5&color=fff`}
                                 alt={contact.name}
-                                className="contact-avatar"
+                                sx={{ width: 45, height: 45 }}
                             />
                             <div className="contact-details">
                                 <h4 className="contact-name">{contact.name}</h4>

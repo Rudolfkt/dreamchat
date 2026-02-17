@@ -41,7 +41,7 @@ export default function ChatRoom({ contact }) {
                     <input type="text" placeholder="                                     🔍 Search chat"/>
                 </div>
                 <div className="more-options">
-                    <button type="button"><i className="fa-solid fa-bars"></i></button>
+                    <button type="button"><i className="fa-solid fa-bars" /></button>
                 </div>
             </div>
 
@@ -51,22 +51,25 @@ export default function ChatRoom({ contact }) {
             </div>
 
             {/* Messaging Bar */}
-            <form className="chat-room-input" onSubmit={handleSend}>
-              
-                <button type="attachment">
-                    <i className="fa fa-paperclip" />
-                </button>
-
-                    <input
-                    type="text"
-                    placeholder="Type a message..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                <button type="submit">
-                    <i className="fa fa-paper-plane" />
-                </button>
-            </form>
+            <div className="chat-room-input" onSubmit={handleSend}>
+                <div className="input-wrapper">
+                    <button type="button" className="attachment-btn">
+                        <i className="fa fa-paperclip" />
+                    </button>
+                    <input className='message-input'
+                        type="text"
+                        placeholder="Type a message..."
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
+                     <button type="button" className="microphone-btn">
+                        <i className="fa fa-microphone" />
+                    </button>
+                    <button type="submit" className="send-btn">
+                        <i className="fa fa-paper-plane" />
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }
