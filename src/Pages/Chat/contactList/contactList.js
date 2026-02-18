@@ -1,81 +1,57 @@
 import React from 'react';
 import './contactList.css';
+import { Avatar } from '@mui/material';
+const contacts = [
+    { id: 1, name: 'John Doe', lastMessage: 'Siiiiiuuuuuuu' },
+    { id: 2, name: 'Jane Smith', lastMessage: 'Cold Palmer better' },
+    { id: 3, name: 'Princess Arthur', lastMessage: 'lmfao brooo' },
+    { id: 4, name: 'Winston', lastMessage: 'Lol' },
+    { id: 5, name: 'Desmond', lastMessage: 'Estevao bettter than Yamal' },
+    { id: 6, name: 'Ben', lastMessage: 'Hala Madrid' },
+    { id: 7, name: 'Mamba', lastMessage: 'Mamba mentality' },
+];
 
-export default function ContactList() {
-
-
+export default function ContactList({ onSelectContact }) {
 
     return (
 
         <div className="contact-list">
 
             <div className="profile-photo-search-bar">
-                <div className="profile-photo">
-                    <img src="https://ui-avatars.com/api/?name=Rudolf&size=45&background=1ebea5&color=fff" alt="Profile" />
-                </div>
+                <Avatar
+                    src="https://ui-avatars.com/api/?name=Rudolf&size=45&background=1ebea5&color=fff"
+                    alt="Profile"
+                    sx={{ width: 40, height: 40 }}
+                />
 
                 <div className="search-bar">
                     <input type="text" placeholder="Search"/>
                 </div>
+
+                <button type="button" className="add-contact-btn">
+                    <i className="fa fa-user-plus" />
+                </button>
             </div>
 
             <div className="contacts">
                 <ul>
-                    <li className="contact-item">
-                        <img src="https://ui-avatars.com/api/?name=John+Doe&size=45&background=1ebea5&color=fff" alt="John Doe" className="contact-avatar" />
-                        <div className="contact-details">
-                            <h4 className="contact-name">John Doe</h4>
-                            <p className="last-message">Siiiiiuuuuuuu</p>
-                        </div>
-                    </li>
-
-                    <li className="contact-item">
-                        <img src="https://ui-avatars.com/api/?name=Jane+Smith&size=45&background=1ebea5&color=fff" alt="Jane Smith" className="contact-avatar" />
-                        <div className="contact-details">
-                            <h4 className="contact-name">Jane Smith</h4>
-                            <p className="last-message">Cold Palmer better</p>
-                        </div>
-                    </li>
-
-                    <li className="contact-item">
-                        <img src="https://ui-avatars.com/api/?name=Princess+Arthur&size=45&background=1ebea5&color=fff" alt="Princess Arthur" className="contact-avatar" />
-                        <div className="contact-details">
-                            <h4 className="contact-name">Princess Arthur</h4>
-                            <p className="last-message">lmfao brooo</p>
-                        </div>
-                    </li>
-
-                    <li className="contact-item">
-                        <img src="https://ui-avatars.com/api/?name=Winston&size=45&background=1ebea5&color=fff" alt="Winston" className="contact-avatar" />
-                        <div className="contact-details">
-                            <h4 className="contact-name">Winston</h4>
-                            <p className="last-message">Lol </p>
-                        </div>
-                    </li>
-
-                    <li className="contact-item">
-                        <img src="https://ui-avatars.com/api/?name=Desmond&size=45&background=1ebea5&color=fff" alt="Desmond" className="contact-avatar" />
-                        <div className="contact-details">
-                            <h4 className="contact-name">Desmond</h4>
-                            <p className="last-message">Estevao bettter than Yamal</p>
-                        </div>
-                    </li>
-
-                    <li className="contact-item">
-                        <img src="https://ui-avatars.com/api/?name=Ben&size=45&background=1ebea5&color=fff" alt="Ben" className="contact-avatar" />
-                        <div className="contact-details">
-                            <h4 className="contact-name">Ben</h4>
-                            <p className="last-message">Hala Madrid</p>
-                        </div>
-                    </li>
-
-                    <li className="contact-item">
-                        <img src="https://ui-avatars.com/api/?name=Mamba&size=45&background=1ebea5&color=fff" alt="Mamba" className="contact-avatar" />
-                        <div className="contact-details">
-                            <h4 className="contact-name">Mamba</h4>
-                            <p className="last-message">Mamba mentality</p>
-                        </div>
-                    </li>
+                    {contacts.map((contact) => (
+                        <li
+                            key={contact.id}
+                            className="contact-item"
+                            onClick={() => onSelectContact(contact)}
+                        >
+                            <Avatar
+                                src={`https://ui-avatars.com/api/?name=${contact.name.replace(' ', '+')}&size=45&background=1ebea5&color=fff`}
+                                alt={contact.name}
+                                sx={{ width: 45, height: 45 }}
+                            />
+                            <div className="contact-details">
+                                <h4 className="contact-name">{contact.name}</h4>
+                                <p className="last-message">{contact.lastMessage}</p>
+                            </div>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

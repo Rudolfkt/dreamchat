@@ -18,13 +18,6 @@
     border-bottom: 0px solid var(--color-border);
 }
 
-.profile-photo img {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    object-fit: cover;
-    flex-shrink: 0;
-}
 
 .search-bar {
     flex: 1;
@@ -50,6 +43,27 @@
     
     font-family: var(--font-family);
     font-size: var(--font-size-sm);
+}
+
+.add-contact-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: var(--radius-full);
+    background-color: transparent;
+    color: var(--color-text-lighter);
+    font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.add-contact-btn:hover {
+    background-color: var(--color-dark-lighter);
+    color: var(--color-primary);
 }
 
 /* ── Contact Items ── */
@@ -84,13 +98,7 @@
     background-color: var(--color-border);
 }
 
-.contact-avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: var(--radius-full);
-    object-fit: cover;
-    flex-shrink: 0;
-}
+
 
 .contact-details {
     flex: 1;
