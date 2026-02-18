@@ -161,7 +161,7 @@
 }
 .microphone-btn {
     position: absolute;
-    right: 40px;
+    right: 41px;
     width: 34px;
     height: 34px;
     border: none;
@@ -194,5 +194,5 @@
 }
 
 .chat-room-input button:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-primary);
 }

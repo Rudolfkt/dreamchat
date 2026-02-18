@@ -1,6 +1,6 @@
 import React from 'react';
 import './contactList.css';
-import { Avatar, IconButton, TextField, } from '@mui/material';
+import { Avatar } from '@mui/material';
 const contacts = [
     { id: 1, name: 'John Doe', lastMessage: 'Siiiiiuuuuuuu' },
     { id: 2, name: 'Jane Smith', lastMessage: 'Cold Palmer better' },
