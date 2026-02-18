@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './chatRoom.css';
+import Options from './options';
 
 export default function ChatRoom({ contact }) {
     const [message, setMessage] = useState('');
+    const [showOptions, setShowOptions] = useState(false);
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -40,8 +42,15 @@ export default function ChatRoom({ contact }) {
                  <div className="search-chat">
                     <input type="text" placeholder="                                     🔍 Search chat"/>
                 </div>
-                <div className="more-options">
-                    <button type="button"><i className="fa-solid fa-bars" /></button>
+                <div className="more-options" style={{ position: 'relative' }}>
+                    <button
+                        type="button"
+                        onClick={() => setShowOptions((prev) => !prev)}
+                        aria-label="More options"
+                    >
+                        <i className="fa-solid fa-bars" />
+                    </button>
+                    {showOptions && <Options />}
                 </div>
             </div>
 
