@@ -1,67 +1,54 @@
-/* Modern dropdown options menu for chat */
+/* Standard dropdown options menu for chat */
 
 .options {
   display: flex;
   flex-direction: column;
-  
-  background: var(--color-dark-lighter, #23272f);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  background: #303353c5;
+  border-radius: 24px;
+  width: 170px;
+  height: 225px;
+  box-shadow: 1px 1px 1px rgba(255, 254, 254, 0.1);
   padding: 8px 0;
   position: absolute;
-  top: 48px;
-  right: 0;
-  z-index: 20;
-  border: 1px solid var(--color-border, #23272f);
-  animation: dropdown-fade-in 0.18s cubic-bezier(.4,0,.2,1);
-}
-
-@keyframes dropdown-fade-in {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  top: 40px;
+  right: 20px;
+  z-index: 1000;
+  border: 1px solid #ffffff;
+  border-color: #1e2144;
+  border-width: 0px;
 }
 
 .options button {
   display: flex;
   align-items: center;
-  gap: 14px;
   background: none;
-  border: none;
-  color: var(--color-text-lighter, #f3f4f6);
-  font-size: 1rem;
-  font-family: inherit;
-  padding: 12px 22px 12px 18px;
+  border: ;
+  color: #374151;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  padding: 8px 16px;
   cursor: pointer;
-  width: 100%;
   text-align: left;
-  border-radius: 8px;
-  transition: background 0.13s, color 0.13s;
-  outline: none;
+  width: 100%;
+  transition: background-color 0.2s ease;
+
 }
 
-.options button:hover,
-.options button:focus {
-  background: var(--color-primary, #1ebea5);
-  color: #fff;
+.options button:hover {
+  background-color: #49597e;
 }
 
-.option-icon {
-  width: 30px;
-  height: 30px;
-  color: var(--color-primary, #1ebea5);
-  flex-shrink: 0;
-  transition: color 0.13s;
+.options-icon {
+  width: 20px; /* Slightly larger for better visibility */
+  height: 20px;
+  color: #fcfdff;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-right: 5px; /* Added margin to separate from text */
 }
 
-.options button:hover .option-icon,
-.options button:focus .option-icon {
-  color: #fff;
-}
-
-/* Optional: subtle divider between groups */
-.options .divider {
-  height: 1px;
-  background: var(--color-border, #2c313a);
-  margin: 4px 0;
-  border: none;
+.options-text {
+  flex-grow: 1;
+  color: #fcfdff;
+  font-size: inherit;
+  padding-left: 10px;
 }

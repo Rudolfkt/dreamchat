@@ -1,9 +1,22 @@
-import "./options.css";
+import "./profile.css";
+import { Avatar } from '@mui/material';
 import { Cog6ToothIcon, SpeakerXMarkIcon, TrashIcon, UserMinusIcon, ChatBubbleLeftRightIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 
-const Options = () => {
+const UserProfile = () => {
     return (
-        <div className="options">
+        <div className="user-profile">
+            <div className="profile-photo">
+                <Avatar
+                    src="https://ui-avatars.com/api/?name=Rudolf&size=45&background=1ebea5&color=fff"
+                    alt="Profile"
+                    sx={{ width: 40, height: 40 }}
+                />
+
+                <button type="button" className="add-contact-btn">
+                    <i className="fa fa-user-plus" />
+                </button>
+            </div>
+
             <button className="settings">
                 <Cog6ToothIcon className="options-icon" />
                 <span className="options-text">Settings</span>
@@ -32,4 +45,4 @@ const Options = () => {
     );
 };
 
-export default Options;
+export default UserProfile;

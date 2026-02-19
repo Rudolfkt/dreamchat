@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import UserProfileCard from './Profile/UserProfileCard';
 import './contactList.css';
 import { Avatar } from '@mui/material';
+
 const contacts = [
     { id: 1, name: 'John Doe', lastMessage: 'Siiiiiuuuuuuu' },
     { id: 2, name: 'Jane Smith', lastMessage: 'Cold Palmer better' },
@@ -12,25 +14,51 @@ const contacts = [
 ];
 
 export default function ContactList({ onSelectContact }) {
+    const [showUserProfile, setShowUserProfile] = useState(false);
+    const [profilePosition, setProfilePosition] = useState({ top: 0, left: 0 });
+
+    const toggleUserProfile = () => {
+        const buttonElement = document.querySelector('.profile-photo-btn');
+        if (buttonElement) {
+            const rect = buttonElement.getBoundingClientRect();
+            setProfilePosition({ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX });
+        }
+        setShowUserProfile((prev) => !prev);
+    };
 
     return (
-
         <div className="contact-list">
-
             <div className="profile-photo-search-bar">
-                <Avatar
-                    src="https://ui-avatars.com/api/?name=Rudolf&size=45&background=1ebea5&color=fff"
-                    alt="Profile"
-                    sx={{ width: 40, height: 40 }}
-                />
+                <button
+                    type="button"
+                    onClick={toggleUserProfile}
+                    aria-label="User profile"
+                    className="profile-photo-btn"
+                >
+                    <Avatar
+                        src="https://ui-avatars.com/api/?name=Rudolf&size=45&background=1ebea5&color=fff"
+                        alt="Profile"
+                        sx={{ width: 40, height: 40 }}
+                    />
+                </button>
 
                 <div className="search-bar">
-                    <input type="text" placeholder="Search"/>
+                    <input type="text" placeholder="Search" />
                 </div>
 
-                <button type="button" className="add-contact-btn">
-                    <i className="fa fa-user-plus" />
-                </button>
+                {showUserProfile && (
+                    <UserProfileCard
+                        contact={{
+                            name: 'Rudolf',
+                            lastMessage: 'This is your profile',
+                        }}
+                        style={{
+                            position: 'absolute',
+                            top: `${profilePosition.top}px`,
+                            left: `${profilePosition.left}px`,
+                        }}
+                    />
+                )}
             </div>
 
             <div className="contacts">
