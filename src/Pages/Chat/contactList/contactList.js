@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import UserProfileCard from './Profile/UserProfileCard';
 import './contactList.css';
 import { Avatar } from '@mui/material';
