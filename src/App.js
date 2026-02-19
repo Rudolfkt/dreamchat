@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Pages/Home/home';
 import Chat from './Pages/Chat/chat';
-import Profile from './Pages/Profile/profile';
+import Profile from './Pages/Chat/contactList/Profile/profile';
 import Signup from './Pages/Signup/signup';
 import Login from './Pages/Login/login';
 import { toast, ToastContainer } from 'react-toastify';

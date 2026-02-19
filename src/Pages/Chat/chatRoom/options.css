@@ -1,0 +1,54 @@
+/* Standard dropdown options menu for chat */
+
+.options {
+  display: flex;
+  flex-direction: column;
+  background: #303353c5;
+  border-radius: 24px;
+  width: 170px;
+  height: 225px;
+  box-shadow: 1px 1px 1px rgba(255, 254, 254, 0.1);
+  padding: 8px 0;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  z-index: 1000;
+  border: 1px solid #ffffff;
+  border-color: #1e2144;
+  border-width: 0px;
+}
+
+.options button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: ;
+  color: #374151;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  padding: 8px 16px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.2s ease;
+
+}
+
+.options button:hover {
+  background-color: #49597e;
+}
+
+.options-icon {
+  width: 20px; /* Slightly larger for better visibility */
+  height: 20px;
+  color: #fcfdff;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-right: 5px; /* Added margin to separate from text */
+}
+
+.options-text {
+  flex-grow: 1;
+  color: #fcfdff;
+  font-size: inherit;
+  padding-left: 10px;
+}
