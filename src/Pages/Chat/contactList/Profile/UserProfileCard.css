@@ -2,11 +2,11 @@
     position: absolute;
     top: 60px;
     left: 55px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
+    background: #1a1f46;
+    border: 1px solid #447be9;
+    border-radius: 19px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    padding: 5px;
     z-index: 1000;
     width: 250px;
 }
@@ -23,19 +23,65 @@
     color: #6b7280;
 }
 
+.profile-photo-card {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 16px;
+    border-radius: 15px;
+}
+
+.profile-avatar {
+    left: 95px;
+    right: 45px;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #374151;
+}
+.bio {
+    font-size: 14px;
+    color: #000000;
+}
+
 .profile-action {
     display: block;
     width: 100%;
-    padding: 8px;
+    padding: 3px;
     margin: 4px 0;
-    background: #1ebea5;
+    background: #0d1344;
     color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 1px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.help {
+    display: block;
+    width: 100%;
+    padding: 3px;
+    margin: 4px 0;
+    background: #0d1344;
+    color: #ffffff;
+    border: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     cursor: pointer;
     text-align: center;
 }
 
 .profile-action:hover {
+    background: #159e8c;
+}
+
+.help:hover {
     background: #159e8c;
 }

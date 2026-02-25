@@ -1,9 +1,22 @@
+import React, { forwardRef } from "react";
 import "./options.css";
-import { Cog6ToothIcon, SpeakerXMarkIcon, TrashIcon, UserMinusIcon, ChatBubbleLeftRightIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
+import {
+    Cog6ToothIcon,
+    SpeakerXMarkIcon,
+    TrashIcon,
+    UserMinusIcon,
+    ChatBubbleLeftRightIcon,
+    EllipsisHorizontalIcon
+} from '@heroicons/react/24/outline';
 
-const Options = () => {
+const Options = forwardRef((props, ref) => {
     return (
-        <div className="options">
+        <div
+            ref={ref}
+            className="options"
+            style={props.style}
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+        >
             <button className="settings">
                 <Cog6ToothIcon className="options-icon" />
                 <span className="options-text">Settings</span>
@@ -30,6 +43,6 @@ const Options = () => {
             </button>
         </div>
     );
-};
+});
 
 export default Options;
