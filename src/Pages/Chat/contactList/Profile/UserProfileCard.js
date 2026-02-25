@@ -1,8 +1,8 @@
-import React from 'react';
 import './UserProfileCard.css';
 import { Avatar } from '@mui/material';
 
 const UserProfileCard = ({ contact }) => {
+
     return (
         <div className="user-profile-card">
             <button className="profile-photo-card">

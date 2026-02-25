@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import UserProfileCard from './Profile/UserProfileCard';
 import './contactList.css';
 import { Avatar } from '@mui/material';
@@ -16,15 +16,28 @@ const contacts = [
 export default function ContactList({ onSelectContact }) {
     const [showUserProfile, setShowUserProfile] = useState(false);
     const [profilePosition, setProfilePosition] = useState({ top: 0, left: 0 });
+    const userProfileRef = useRef(null);
 
-    const toggleUserProfile = () => {
-        const buttonElement = document.querySelector('.profile-photo-btn');
-        if (buttonElement) {
-            const rect = buttonElement.getBoundingClientRect();
-            setProfilePosition({ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX });
-        }
+    const toggleUserProfile = (event) => {
+        event.stopPropagation(); // Prevent triggering handleClickOutside
+        const buttonElement = event.currentTarget;
+        const rect = buttonElement.getBoundingClientRect();
+        setProfilePosition({ top: rect.bottom + window.scrollY, left: rect.left + window.scrollX });
         setShowUserProfile((prev) => !prev);
     };
+
+    const handleClickOutside = (event) => {
+        if (userProfileRef.current && !userProfileRef.current.contains(event.target)) {
+            setShowUserProfile(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 
     return (
         <div className="contact-list">
@@ -47,17 +60,22 @@ export default function ContactList({ onSelectContact }) {
                 </div>
 
                 {showUserProfile && (
-                    <UserProfileCard
-                        contact={{
-                            name: 'Rudolf',
-                            lastMessage: 'This is your profile',
-                        }}
+                    <div
+                        ref={userProfileRef}
                         style={{
                             position: 'absolute',
                             top: `${profilePosition.top}px`,
                             left: `${profilePosition.left}px`,
                         }}
-                    />
+                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+                    >
+                        <UserProfileCard
+                            contact={{
+                                name: 'Rudolf',
+                                lastMessage: 'This is your profile',
+                            }}
+                        />
+                    </div>
                 )}
             </div>
 
@@ -85,14 +103,3 @@ export default function ContactList({ onSelectContact }) {
         </div>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
